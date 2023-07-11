@@ -3,7 +3,7 @@
 **Clone the Repository**
 
 To get started, clone this repository by executing the following command in your terminal:
-  git clone 
+  git clone https://github.com/ankitkumarpali/Final_Project.git
 
 **Installation**
 

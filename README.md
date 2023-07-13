@@ -11,8 +11,8 @@ Before running the project, ensure that you have the required software installed
    pip install -r requirements.txt
 
 **Running the Simple Machine Learning Model**
-   python3 examples/stan_without_encryption.py
+   python3 examples/my_project/stan_without_encryption.py
 
 **Running the Project**
  If you want to run the project with all its features, execute the following command:
-   python3/examples/my_project/launcher.py
+   python3 examples/my_project/launcher.py

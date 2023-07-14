@@ -14,9 +14,9 @@ from torch.utils.data import Dataset, DataLoader
 from torch.optim import lr_scheduler
 import sys
 import os
-
-
-sys.path.append("/data/home/ankitkumar15/CrypTen")
+current_dir = os.getcwd()
+absolute_path = os.path.abspath(current_dir)
+sys.path.append(absolute_path)
 import crypten
 import crypten.communicator as comm
 from decimal import Decimal

@@ -540,6 +540,8 @@ def train(train_data, label, model, values):
 
         running_train_loss = 0.0
         train_loss = 0.0
+        regularizer = 0.5
+        hyperparameter = 0.2
         count = 0
         for x, y in zip(train_data, label):
             # x = i[0]
@@ -565,9 +567,9 @@ def train(train_data, label, model, values):
             # optimizer.step()
             count += 1
             print(count)
-            
+        regularizer /= 1 + math.exp(-hyperparameter*e) 
         # scheduler.step()
-        train_loss= running_train_loss/len(train_data)
+        train_loss = running_train_loss/len(train_data)
 
         model.eval()
 
@@ -594,7 +596,7 @@ def train(train_data, label, model, values):
     # if (e%10 ==0 or e==epochs-1):
         # f.write('In epoch {}, train loss: {:.3f}, val loss: {:.3f} '.format(e, train_loss, val_loss))
         # f.write("\n")
-        print('In epoch {}, train loss: {:.3f} '.format(e, trainloss[e]))
+        print('In epoch {}, train loss: {:.3f} '.format(e, train_loss))
         e += 1
     torch.save(model.state_dict(), '/data/home/ankitkumar15/CrypTen/crypten/my_model_unencrypted.pt')
 # print(x.shape)

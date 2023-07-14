@@ -28,8 +28,23 @@ if torch.cuda.is_available():
 
 decimal.getcontext().prec = 100
 # %%
-
-
+def add_leading_zero( value):
+    value = str(value)
+    if len(value) == 11:
+        return '0' + value
+    elif len(value) == 10:
+        return '00' + value
+    else:
+        return value
+    
+def sliding_window_3d(tensor, window_size, stride):
+    windows = []
+    # print(tensor.shape[0], tensor.shape[1], tensor.shape[2])
+    for i in range(0, tensor.shape[0] - window_size[0] + 1, stride[0]):
+        for j in range(0, tensor.shape[1] - window_size[1] + 1, stride[1]):
+            for k in range(0, tensor.shape[2] - window_size[2] + 1, stride[2]):
+                windows.append(tensor[i:i + window_size[0], j:j + window_size[1], k:k + window_size[2]])
+    return windows
 # %%
 
 class Load:
